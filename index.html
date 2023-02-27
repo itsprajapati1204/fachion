@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    .text {
+        padding-left: 60px;
+    }
+</style>
+
+<body>
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <!-- Mobile menu button-->
+                    <button type="button"
+                        class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <!--
+                  Icon when menu is closed.
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+                        <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <!--
+                  Icon when menu is open.
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+                        <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-shrink-0 items-center">
+                        <img class="block h-1 w-auto lg:hidden" src="https://i.ibb.co/4p8wYPN/logo.png"
+                            alt="Your Company">
+                        <img class="hidden h-8 w-auto lg:block" src="https://i.ibb.co/4p8wYPN/logo.png"
+                            alt="Your Company">
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="#" class="bg-gray-900 text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+                                aria-current="page">New Collection</a>
+
+                            <a href="#"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Mens</a>
+
+                            <a href="#"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Women</a>
+
+                            <a href="#"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kids</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="form-inline my-5 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary my-3 my-sm-0" type="submit">Search</button>
+                </form>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <button type="button"
+                        class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        <span class="sr-only">View notifications</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                        </svg>
+                    </button>
+
+                    <!-- Profile dropdown -->
+                    <div class="relative ml-3">
+                        <div>
+                            <button type="button"
+                                class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <span class="sr-only">Open user menu</span>
+                                <img class="h-8 w-8 rounded-full"
+                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+            <div class="space-y-1 px-2 pt-2 pb-3">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+                    aria-current="page">New Collection</a>
+
+                <a href="#"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Mens</a>
+
+                <a href="#"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Womens</a>
+
+                <a href="#"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Kids</a>
+            </div>
+        </div>
+    </nav>
+    <div class="relative overflow-hidden bg-white">
+        <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+            <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+                <div class="sm:max-w-lg">
+                    <h1 class="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Glow Fashion</h1>
+                    <p class="mt-4 text-xl text-gray-500"> “Fashion is what you’re offered four times a year by
+                        designers. And style is what you choose”</p>
+                </div>
+                <div>
+                    <div class="mt-10">
+                        <!-- Decorative image grid -->
+                        <div aria-hidden="true"
+                            class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl">
+                            <div
+                                class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+                                <div class="flex items-center space-x-6 lg:space-x-8">
+                                    <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                                        <div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+                                            <img src="https://i.ibb.co/qFb40d5/F01.jpg" alt=""
+                                                class="h-full w-full object-cover object-center">
+                                        </div>
+                                        <div class="h-64 w-44 overflow-hidden rounded-lg">
+                                            <img src="https://i.ibb.co/tq0TLQT/F02.jpg" alt=""
+                                                class="h-full w-full object-cover object-center">
+                                        </div>
+                                    </div>
+                                    <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                                        <div class="h-64 w-44 overflow-hidden rounded-lg">
+                                            <img src="https://i.ibb.co/qr7wM1t/F03.jpg" alt=""
+                                                class="h-full w-full object-cover object-center">
+                                        </div>
+                                        <div class="h-64 w-44 overflow-hidden rounded-lg">
+                                            <img src="https://i.ibb.co/gv0Lhqd/F04.jpg" alt=""
+                                                class="h-full w-full object-cover object-center">
+                                        </div>
+                                        <div class="h-64 w-44 overflow-hidden rounded-lg">
+                                            <img src="https://i.ibb.co/N3s4BWk/F05.jpg" alt=""
+                                                class="h-full w-full object-cover object-center">
+                                        </div>
+                                    </div>
+                                    <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                                        <div class="h-64 w-44 overflow-hidden rounded-lg">
+                                            <img src="https://i.ibb.co/XJZdM0Y/F07.jpg" alt=""
+                                                class="h-full w-full object-cover object-center">
+                                        </div>
+                                        <div class="h-64 w-44 overflow-hidden rounded-lg">
+                                            <img src="https://i.ibb.co/sQKrNxF/F06.jpg" alt=""
+                                                class="h-full w-full object-cover object-center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#"
+                            class="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700">Shop
+                            Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Second interface -->
+    <div class="text">
+        <h1
+            class="font text-4xl font-bold tracking-tight text-gray-900 max-w-7xl px-16 sm:static flex  sm:px-14 lg:px-14 sm:text-6xl">
+            New Launched</h1>
+    </div>
+
+
+
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <div class="bg-white">
+        <div class="mx-auto max-w-2xl py-16 px-2 sm:py-10 sm:px-6 lg:max-w-7xl lg:px-8">
+            <h2 class="sr-only">Products</h2>
+
+            <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                <a href="#" class="group">
+                    <div
+                        class="aspect-w-1 aspect-h-1  overflow-hidden rounded-lg bg-gray-200 h-64 w-44 xl:aspect-w-7 xl:aspect-h-8">
+                        <img src="https://i.ibb.co/ssfgj12/03.webp"
+                            alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                            class="h-full w-full object-cover object-center group-hover:opacity-75">
+                    </div>
+                    <h3 class="mt-4 text-sm text-gray-700">T-shirt</h3>
+                    <p class="mt-1 text-lg font-medium text-gray-900">₹480</p>
+                </a>
+
+                <a href="#" class="group">
+                    <div
+                        class="aspect-w-1 aspect-h-1  overflow-hidden rounded-lg h-64 w-44 bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                        <img src="https://i.ibb.co/D1szmR7/01.webp"
+                            alt="Olive drab green insulated bottle with flared screw lid and flat top."
+                            class="h-full w-full object-cover object-center group-hover:opacity-75">
+                    </div>
+                    <h3 class="mt-4 text-sm text-gray-700">Nomad T-shirt</h3>
+                    <p class="mt-1 text-lg font-medium text-gray-900">₹305</p>
+                </a>
+
+                <a href="#" class="group">
+                    <div
+                        class="aspect-w-1 aspect-h-1  overflow-hidden rounded-lg h-64 w-44 bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                        <img src="https://i.ibb.co/BfhVsVm/02.webp"
+                            alt="Person using a pen to cross a task off a productivity paper card."
+                            class="h-full w-full object-cover object-center group-hover:opacity-75">
+                    </div>
+                    <h3 class="mt-4 text-sm text-gray-700">Blue Shad T-shirt</h3>
+                    <p class="mt-1 text-lg font-medium text-gray-900">₹1989</p>
+                </a>
+
+                <a href="#" class="group">
+                    <div
+                        class="aspect-w-1 aspect-h-1  overflow-hidden rounded-lg h-64 w-44 bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                        <img src="https://i.ibb.co/k08z9yJ/04.jpg"
+                            alt="Hand holding black machined steel mechanical pencil with brass tip and top."
+                            class="h-full w-full object-cover object-center group-hover:opacity-75">
+                    </div>
+                    <h3 class="mt-4 text-sm text-gray-700">Printed shirt</h3>
+                    <p class="mt-1 text-lg font-medium text-gray-900">₹350</p>
+                </a>
+                <a href="#" class="group">
+                    <div
+                        class="aspect-w-1 aspect-h-1  overflow-hidden rounded-lg h-64 w-44 bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                        <img src="https://i.ibb.co/k08z9yJ/04.jpg"
+                            alt="Olive drab green insulated bottle with flared screw lid and flat top."
+                            class="h-full w-full object-cover object-center group-hover:opacity-75">
+                    </div>
+                    <h3 class="mt-4 text-sm text-gray-700">Printed T-shirt</h3>
+                    <p class="mt-1 text-lg font-medium text-gray-900">₹1350</p>
+
+
+                    <a href="#" class="group">
+                        <div
+                            class="aspect-w-1 aspect-h-1  overflow-hidden rounded-lg h-64 w-44 bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="https://i.ibb.co/BsSc7T4/06.jpg"
+                                alt="Person using a pen to cross a task off a productivity paper card."
+                                class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700">Cartoon T-shirt</h3>
+                        <p class="mt-1 text-lg font-medium text-gray-900">₹1089</p>
+                    </a>
+
+                    <a href="#" class="group">
+                        <div
+                            class="aspect-w-1 aspect-h-1  overflow-hidden rounded-lg h-64 w-44 bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg"
+                                alt="Hand holding black machined steel mechanical pencil with brass tip and top."
+                                class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700">Machined Mechanical Pencil</h3>
+                        <p class="mt-1 text-lg font-medium text-gray-900">₹3551</p>
+                    </a>
+                    <a href="#" class="group">
+                        <div
+                            class="aspect-w-1 aspect-h-1  overflow-hidden rounded-lg h-64 w-44 bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+                            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg"
+                                alt="Person using a pen to cross a task off a productivity paper card."
+                                class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700">Focus Paper Refill</h3>
+                        <p class="mt-1 text-lg font-medium text-gray-900">₹890</p>
+                    </a>
+            </div>
+
+            <div class="bg-white">
+                <div
+                    class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-y-16 gap-x-8 py-24 px-4 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+                    <div>
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"> Half Sleeve T-shirt
+                        </h2>
+                        <p class="mt-4 text-gray-500">The most simple style in Tshirt, this one has a close-to-the-neck
+                            crew neckline. This is also the most popular type of T-shirt and is favored by both men and
+                            women. The crew neckline which sits along the base of the neck suits most people.</p>
+
+                        <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+                            <div class="border-t border-gray-200 pt-4">
+                                <dt class="font-medium text-gray-900">Origin</dt>
+                                <dd class="mt-2 text-sm text-gray-500">Designed by difference, Inc.</dd>
+                            </div>
+
+                            <div class="border-t border-gray-200 pt-4">
+                                <dt class="font-medium text-gray-900">Material & Care</dt>
+                                <dd class="mt-2 text-sm text-gray-500">100 % Cotton
+                                    Machine wash
+                                    Dry in shade
+                                    Do not iron on the print
+                                    Wash with like colors</dd>
+                            </div>
+
+                            <div class="border-t border-gray-200 pt-4">
+                                <dt class="font-medium text-gray-900">Size</dt>
+                                <dd class="mt-2 text-sm text-gray-500">X,XL,XXL,M,S, </dd>
+                            </div>
+
+                            <div class="border-t border-gray-200 pt-4">
+                                <dt class="font-medium text-gray-900">Finish</dt>
+                                <dd class="mt-2 text-sm text-gray-500">Difference factory with best proofectional worker
+                                </dd>
+                            </div>
+
+                            <div class="border-t border-gray-200 pt-4">
+                                <dt class="font-medium text-gray-900">Includes</dt>
+                                <dd class="mt-2 text-sm text-gray-500">Cotton,10% silk</dd>
+                            </div>
+
+                            <div class="border-t border-gray-200 pt-4">
+                                <dt class="font-medium text-gray-900">Considerations</dt>
+                                <dd class="mt-2 text-sm text-gray-500">Made from natural materials. cotton and silk
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+                        <img src="1.png"
+                            alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
+                            class="rounded-lg bg-gray-100">
+                        <img src="2.png" alt="Top down view of walnut card tray with embedded magnets and card groove."
+                            class="rounded-lg bg-gray-100">
+                        <img src="3.png" alt="Side of walnut card tray with card groove and recessed card area."
+                            class="rounded-lg bg-gray-100">
+                        <img src="4.png" alt="Walnut card tray filled with cards and card angled in dedicated groove."
+                            class="rounded-lg bg-gray-100">
+                    </div>
+                </div>
+            </div>
+
+            <section class="relative isolate overflow-hidden bg-white py-24 px-6 sm:py-32 lg:px-8">
+                <div
+                    class="bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] absolute inset-0 -z-10 opacity-20">
+                </div>
+                <div
+                    class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center">
+                </div>
+                <div class="mx-auto max-w-2xl lg:max-w-4xl">
+                    <img class="mx-auto h-12" src="logo.png"
+                        alt="">
+                    <figure class="mt-10">
+                        <blockquote
+                            class="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+                            <p>“Fashion is not something that exists in dresses only. Fashion is in the sky, in the
+                                street, fashion has to do with ideas, the way we live, what is happening.”</p>
+                        </blockquote>
+                        <figcaption class="mt-10">
+                            <img class="mx-auto h-10 w-10 rounded-full"
+                                src="company.jpg"
+                                alt="">
+                            <div class="mt-4 flex items-center justify-center space-x-3 text-base">
+                                <div class="font-semibold text-gray-900">R.K Mital</div>
+                                <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="fill-gray-900">
+                                    <circle cx="1" cy="1" r="1" />
+                                </svg>
+                                <div class="text-gray-600">Company Owner</div>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+
+
+            <div class="bg-white py-24 sm:py-32">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <h2 class="text-center text-lg font-semibold leading-8 text-gray-900">Trusted by the world’s
+                        most innovative teams</h2>
+                    <div
+                        class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+                        <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                            src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor"
+                            width="158" height="48">
+                        <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                            src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform"
+                            width="158" height="48">
+                        <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                            src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple"
+                            width="158" height="48">
+                        <img class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+                            src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal"
+                            width="158" height="48">
+                        <img class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+                            src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic"
+                            width="158" height="48">
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer pt-5 pb-4 pb-lg-5">
+                <div class="container text-center pt-lg-3">
+                    <div class="navbar-brand justify-content-center text-dark mb-2 mb-lg-4">
+                        <img src="logo.png" class="me-2" width="60" alt="glow-fashion">
+                        <span class="fs-4">Fashion</span>
+                    </div>
+                    <ul class="nav justify-content-center pt-3 pb-4 pb-lg-5">
+                        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Overview</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Contacts</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Account</a></li>
+                    </ul>
+                    <div>
+                        <div class="d-flex flex-column flex-sm-row justify-content-center">
+                            <a href="#" class="btn btn-dark btn-lg px-2 py-2 me-sm-4 mb-3">
+                                <img src="appstore-light.svg" class="light-mode-img" width="124" alt="App Store">
+
+                            </a>
+
+                            <div>
+                                <a href="#" class="btn btn-dark btn-lg px-3 py-2 mb-3">
+                                    <img src="googleplay-light.svg" class="light-mode-img" width="139"
+                                        alt="Google Play">
+
+                                </a>
+                            </div>
+                        </div>
+
+                        <p class="nav d-block fs-sm text-center pt-1 mt-lg-4 mb-0">
+                            <span class="opacity-80">© All rights reserved. Made by </span>
+                            <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank"
+                                rel="noopener">prajapatieditx</a>
+                        </p>
+                    </div>
+            </footer>
+
+</body>
+
+</html>
